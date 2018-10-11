@@ -1,9 +1,10 @@
 package intermediate.garage
 
-class Bike (bikeModel:String, colourChoice:String) extends Vehicle{
+class Bike (bikeModel:String, colourChoice:String, bikeID:Int) extends Vehicle{
   def model:String = bikeModel
   def tyres:Int = 4
   def colour:String = colourChoice
+  def id:Int = bikeID
 
   def this(bikeModel:String) = this(bikeModel,"Red")
 

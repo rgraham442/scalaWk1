@@ -18,7 +18,7 @@ class Garage {
 
   }
 
-  def addCar(addIn:Any): Unit = {
+  def addCar(id:Int,make:String,colour:String): Unit = {
 
   }
 }
