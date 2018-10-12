@@ -1,12 +1,10 @@
 package intermediate.garage
 
-class Car (carModel:String, colourChoice:String, carID:Int) extends Vehicle{
+class Car (val carModel:String, val colourChoice:String, val carID:Int) extends Vehicle{
   def model:String = carModel
   def tyres:Int = 4
   def colour:String = colourChoice
   def id:Int = carID
 
-  def this(carModel:String) = this(carModel,"Red")
-
-  override def toString():String = {s"This is a $colour $model car"}
+  override def toString():String = {s"$colour $model car"}
 }
