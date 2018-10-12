@@ -45,8 +45,6 @@ class Garage {
       lot.bikes.mkString(", ")
     }
   }
-
-  def addEmployee
 }
 
 
