@@ -23,7 +23,6 @@ class KeyboardSolutionV2 {
 
 
   }
-  bufferedSource.close
 }
 
 object start {
