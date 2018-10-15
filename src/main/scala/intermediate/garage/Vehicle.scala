@@ -5,6 +5,7 @@ abstract class Vehicle {
   val tyres:Int
   val colour:String
   val id:Int
+  val broken:Boolean
 
   override def toString: String = super.toString
 
