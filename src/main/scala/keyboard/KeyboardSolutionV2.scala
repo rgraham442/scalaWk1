@@ -16,11 +16,15 @@ class KeyboardSolutionV2 {
     words
   }
 
-  def sort(input:String):Unit = {
-    val letter:ArrayBuffer[Char] = ArrayBuffer()
-    input.foreach(letter +=)
-
-
+  def sort(input:String*):Unit = {
+    val key:ArrayBuffer[String] = ArrayBuffer()
+    input.foreach{word => wordArray().foreach { element =>
+      if (element.toCharArray.distinct.toSet.subsetOf(word.toCharArray.toSet))
+        key += element
+    }
+      if (key.nonEmpty)
+        println(key)
+    }
 
   }
 }
@@ -28,6 +32,6 @@ class KeyboardSolutionV2 {
 object start {
   def main(args: Array[String]): Unit = {
     val run = new KeyboardSolutionV2()
-    println(run.wordArray())
+    run.sort("bnik")
   }
 }
