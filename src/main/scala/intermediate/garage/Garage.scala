@@ -16,6 +16,7 @@ class Garage {
   object lot {
     val cars = HashMap[Int, Car]()
     val bikes = HashMap[Int, Bike]()
+    val employees = HashMap[Int, Employee]()
 
   }
 
@@ -46,7 +47,14 @@ class Garage {
     }
   }
 
-  def addEmployee
+  def registerEmployee(name:String, age:Int, id:Int):Unit = {
+    if (lot.employees.get(id).isEmpty) {
+      lot.employees += (id -> new Employee(name, age, id))
+      lot.employees.mkString(", ")
+    }
+  }
+
+
 }
 
 

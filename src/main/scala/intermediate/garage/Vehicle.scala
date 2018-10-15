@@ -1,10 +1,10 @@
 package intermediate.garage
 
 abstract class Vehicle {
-  def model:String
-  def tyres:Int
-  def colour:String
-  def id:Int
+  val model:String
+  val tyres:Int
+  val colour:String
+  val id:Int
 
   override def toString: String = super.toString
 

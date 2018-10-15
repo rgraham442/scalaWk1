@@ -1,10 +1,10 @@
 package intermediate.garage
 
 abstract class Person {
-  def name:String
-  def job:String
-  def age:Int
-  def id:Int
+  val name:String
+  val job:String
+  val age:Int
+  val id:Int
 
   override def toString: String = super.toString
 }
