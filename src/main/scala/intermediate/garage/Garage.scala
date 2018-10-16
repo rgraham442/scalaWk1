@@ -53,14 +53,8 @@ class Garage {
     foundEmployee
   }
 
-  def fixVehicle(id:Int):Unit = {
-      if (findVehicle(id).broken) {
-        !lot.vehicles(id).broken
-        println("The vehicle has been fixed")
-      }
-      else {
-        println("The vehicle is already fixed")
-      }
+  def workDay(hours:Int):Unit = {
+    lot.vehicles.foreach(vehicle => )
   }
 }
 
