@@ -1,9 +1,9 @@
 def sum(first:Int,second:Int,modifier:Boolean):Int = (first, second) match {
   case (0, 0) => 0
-  case (0, second) => second
-  case (first, 0) => first
-  case (first, second) if modifier => first+second
-  case (first, second) if !modifier => first*second
+  case (0, `second`) => second
+  case (`first`, 0) => first
+  case (`first`, `second`) if modifier => first+second
+  case (`first`, `second`) if !modifier => first*second
   case _ => 0
 }
 

@@ -1,88 +1,67 @@
 package intermediate.garage
 
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.ArrayBuffer
 
 class Garage {
-  var open: Boolean = false
-
-  def opener(): Unit = {
-    open == true
-  }
-
-  def closer(): Unit = {
-    open == false
-  }
-
-  def closeCheck():Unit = {
-    if (!open) {
-      println("Sorry, the garage is closed right now")
-      System.exit(1)
-    }
-  }
-
-  closeCheck()
 
   object lot {
-    val cars = HashMap[Int, Car]()
-    val bikes = HashMap[Int, Bike]()
-    val employees = HashMap[Int, Employee]()
-
+    val vehicles = ArrayBuffer[Vehicle]()
+    val employees = ArrayBuffer[Employee]()
+    val customer = ArrayBuffer[Customer]()
   }
 
-  def addCar(id:Int, make:String, colour:String): Unit = {
-    if (lot.cars.get(id).isEmpty) {
-      lot.cars += (id -> new Car(make, colour, id))
-      lot.cars.mkString(", ")
+  def addCar(id:Int, make:String, colour:String, price:Int): Unit = {
+    if (findVehicle(id) == null) {
+      lot.vehicles += new Car(make, colour, id, price)
+      lot.vehicles.mkString(", ")
+    }
+  }
+  def addBike(id:Int, make:String, colour:String, cost:Int): Unit = {
+    if (findVehicle(id) == null) {
+      lot.vehicles += new Bike(make, colour, id, cost)
+      lot.vehicles.mkString(", ")
     }
   }
 
-  def removeCar(id:Int): Unit = {
-    if (lot.cars.get(id).nonEmpty) {
-      lot.cars -= id
-      lot.cars.mkString(", ")
+  def removeVehicle(id:Int): Unit = {
+    if (findVehicle(id) != null) {
+      lot.vehicles -= findVehicle(id)
+      lot.vehicles.mkString(", ")
     }
   }
 
-  def addBike(id:Int, make:String, colour:String): Unit = {
-    if (lot.bikes.get(id).isEmpty) {
-      lot.bikes += (id -> new Bike(make, colour, id))
-      lot.bikes.mkString(", ")
-    }
-  }
-  def removeBike(id:Int): Unit = {
-    if (lot.bikes.get(id).nonEmpty) {
-      lot.bikes -= id
-      lot.bikes.mkString(", ")
-    }
+  def findVehicle(id:Int):Vehicle = {
+    var foundVehicle:Vehicle = null
+    lot.vehicles.foreach(vehicle =>
+    if (id == vehicle.id) foundVehicle = vehicle
+    )
+    foundVehicle
   }
 
   def registerEmployee(name:String, age:Int, id:Int):Unit = {
-    if (lot.employees.get(id).isEmpty) {
-      lot.employees += (id -> new Employee(name, age, id))
+    if (findEmployee(id) != null) {
+      lot.employees += new Employee(name, age, id)
       lot.employees.mkString(", ")
     }
   }
 
-  def fixVehicle(choice:String, id:Int):Unit = choice match {
-    case "cars" =>
-      if (lot.cars(id).broken) {
-        lot.cars(id).broken == false
-        println("The vehicle has been fixed")
-      }
-      else {
-        println("The vehicle is already fixed")
-      }
-    case "bikes" =>
-      if (lot.bikes(id).broken) {
-        lot.bikes(id).broken == false
-        println("The vehicle has been fixed")
-      }
-      else {
-        println("The vehicle is already fixed")
-      }
-    case _ => println("Invalid entry")
+  def findEmployee(id:Int):Employee = {
+    var foundEmployee: Employee = null
+    lot.employees.foreach(employee =>
+      if (id == employee.id) foundEmployee = employee
+    )
+    foundEmployee
   }
 
+  def fixVehicle(id:Int):Unit = {
+      if (findVehicle(id).broken) {
+        !lot.vehicles(id).broken
+        println("The vehicle has been fixed")
+      }
+      else {
+        println("The vehicle is already fixed")
+      }
+  }
 }
 
 

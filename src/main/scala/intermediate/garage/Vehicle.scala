@@ -6,8 +6,10 @@ abstract class Vehicle {
   val colour:String
   val id:Int
   val broken:Boolean
+  val cost:Int
 
-  override def toString: String = super.toString
+  override def toString: String
+  def fixVehicle(hoursLeft:Int):Unit
 
 }
 

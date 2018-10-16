@@ -1,5 +1,5 @@
 def swap(number:Any):Any = number match {
-  case number:Tuple2[Int, Int] => number.swap
+  case number:(Int, Int) => number.swap
   case number:Array[Int] if number.length == 2 => number.reverse.mkString(" ")
   case number:List[Int] if number.length == 2 => number.reverse.mkString(" ")
   case _ => s"Not a pair"

@@ -3,8 +3,8 @@ def sum(res: Any, mod:Boolean):Int = res match {
   case Num(0,second) => second
   case Num(first,0) => first
   case Num(0,0) => 0
-  case Num(first,second) if mod == true => first + second
-  case Num(first,second) if mod == false => first * second
+  case Num(first,second) if mod => first + second
+  case Num(first,second) if !mod => first * second
   case _ => 0
 }
 

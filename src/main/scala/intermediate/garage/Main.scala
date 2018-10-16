@@ -5,13 +5,14 @@ object Main {
 
     val gar = new Garage()
 
-    gar.opener()
-    gar.addCar(1,"Tesla","Blue")
-    gar.addCar(2,"Skoda","Grey")
-    println(gar.lot.cars)
-    gar.removeCar(1)
-    println(gar.lot.cars)
-    gar.fixVehicle("cars",2)
+    gar.addCar(1,"Tesla","Blue", 1700)
+    gar.addCar(2,"Skoda","Grey", 400)
+    gar.addBike(3,"Biker","Yellow", 200)
+    println(gar.lot.vehicles)
+    gar.removeVehicle(1)
+    println(gar.lot.vehicles)
+    gar.fixVehicle(2)
+    gar.fixVehicle(2)
 
   }
 }
