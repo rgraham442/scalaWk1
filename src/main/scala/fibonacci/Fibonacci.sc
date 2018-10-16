@@ -11,5 +11,5 @@ def iterate(num:Int): Unit = {
   recursiveFib(num,f,s)
 }
 
-iterate(1)
+iterate(0)
 iterate(8)
