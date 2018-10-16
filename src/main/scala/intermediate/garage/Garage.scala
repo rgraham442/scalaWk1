@@ -63,8 +63,8 @@ class Garage {
     }
   }
 
-  def fixVehicle(choice:String, id:Int):Unit = {
-    if (choice == "cars") {
+  def fixVehicle(choice:String, id:Int):Unit = choice match {
+    case "cars" =>
       if (lot.cars(id).broken) {
         lot.cars(id).broken == false
         println("The vehicle has been fixed")
@@ -72,8 +72,7 @@ class Garage {
       else {
         println("The vehicle is already fixed")
       }
-    }
-    else if (choice == "bikes") {
+    case "bikes" =>
       if (lot.bikes(id).broken) {
         lot.bikes(id).broken == false
         println("The vehicle has been fixed")
@@ -81,10 +80,7 @@ class Garage {
       else {
         println("The vehicle is already fixed")
       }
-    }
-    else {
-      println("Invalid entry")
-    }
+    case _ => println("Invalid entry")
   }
 
 }
