@@ -1,9 +1,8 @@
-def recursiveFib(i:Int, f1:Int,f2:Int):Unit = {
-  if (i > 0) {
-    println(f1)
+def recursiveFib(i:Int, f1:Int,f2:Int):Unit = i match{
+  case i if i > 0 => println(f1)
     val sum = f1+f2
     recursiveFib(i - 1,f2,sum)
-  }
+  case _ => println("End of sequence")
 }
 
 def iterate(num:Int): Unit = {
@@ -12,4 +11,5 @@ def iterate(num:Int): Unit = {
   recursiveFib(num,f,s)
 }
 
-iterate(6)
+iterate(0)
+iterate(8)
