@@ -6,12 +6,21 @@ class Garage {
   var open: Boolean = false
 
   def opener(): Unit = {
-    open = true
+    open == true
   }
 
   def closer(): Unit = {
-    open = false
+    open == false
   }
+
+  def closeCheck():Unit = {
+    if (!open) {
+      println("Sorry, the garage is closed right now")
+      System.exit(1)
+    }
+  }
+
+  closeCheck()
 
   object lot {
     val cars = HashMap[Int, Car]()
@@ -54,6 +63,25 @@ class Garage {
     }
   }
 
+  def fixVehicle(choice:String, id:Int):Unit = choice match {
+    case "cars" =>
+      if (lot.cars(id).broken) {
+        lot.cars(id).broken == false
+        println("The vehicle has been fixed")
+      }
+      else {
+        println("The vehicle is already fixed")
+      }
+    case "bikes" =>
+      if (lot.bikes(id).broken) {
+        lot.bikes(id).broken == false
+        println("The vehicle has been fixed")
+      }
+      else {
+        println("The vehicle is already fixed")
+      }
+    case _ => println("Invalid entry")
+  }
 
 }
 

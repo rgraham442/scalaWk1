@@ -1,30 +1,17 @@
-var output = ""
-
-def recursiveFuncRec(n:Int):Unit = {
-  if (n >= 0) {
-    println(output)
-    recursiveFuncRec(n - 1)
-  }
+def recursiveFunc(o:String, n:Int):Unit = n match {
+  case n if n > 0 => println(o)
+    recursiveFunc(o, n - 1)
+  case _ =>
 }
 
-def iterateRec(output2:String, times:Int):Unit = {
-  output = output2 * times
-  recursiveFuncRec(times)
+def iterateRec(output:String, times:Int):Unit = {
+  recursiveFunc((output * times) + "\n", times)
 }
 
 iterateRec("Hi",4)
 
-
-def recursiveFuncSqu(n:Int):Unit = {
-  if (n > 0) {
-    println(output)
-    recursiveFuncSqu(n - 1)
-  }
-}
-
-def iterateSqu(output2:String, times:Int):Unit = {
-  output = (output2 + " ") * times
-  recursiveFuncSqu(times)
+def iterateSqu(output:String, times:Int):Unit = {
+  recursiveFunc((output + " ") * times, times)
 }
 
 iterateSqu("Hi",4)

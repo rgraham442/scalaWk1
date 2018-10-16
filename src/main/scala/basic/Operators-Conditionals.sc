@@ -1,14 +1,10 @@
-def sum(first:Int,second:Int,modifier:Boolean):Int = {
-  if (first == 0)
-    second
-  else if (second == 0)
-    first
-  else if (first == 0 && second == 0)
-    0
-  else if (modifier == true)
-    first + second
-  else
-    first * second
+def sum(first:Int,second:Int,modifier:Boolean):Int = (first, second) match {
+  case (0, 0) => 0
+  case (0, second) => second
+  case (first, 0) => first
+  case (first, second) if modifier => first+second
+  case (first, second) if !modifier => first*second
+  case _ => 0
 }
 
 sum(1,4,true)
